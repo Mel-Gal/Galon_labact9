@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
- 
+import 'student_crud_page.dart'; 
+
 class DashboardPage extends StatelessWidget {
   final String username;
  
@@ -22,7 +23,10 @@ class DashboardPage extends StatelessWidget {
             size: 80,
             color: Colors.indigo,
           ),
+          
           const SizedBox(height: 16),
+
+          
  
           Text(
             'Welcome, $username!',
@@ -69,9 +73,26 @@ class DashboardPage extends StatelessWidget {
                     'View student information and log out.',
                   ),
                 ),
+
+                
+
               ],
+
             ),
           ),
+          const SizedBox(height: 20),
+ 
+ElevatedButton.icon(
+  onPressed: () {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => const StudentCrudPage(),
+      ),
+    );
+  },
+  icon: const Icon(Icons.storage),
+  label: const Text('Manage Student Records'),
+),
         ],
       ),
     );
